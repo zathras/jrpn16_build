@@ -10,6 +10,10 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 
+architectures: 
+  - build-on: amd64 
+  - build-on: arm64
+
 slots:
     dbus-jrpn16:
         interface: dbus
