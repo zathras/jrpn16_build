@@ -34,7 +34,7 @@ flutter_icons:
   image_path: assets_16/icon256.png
   image_path_ios:  assets_16/icon_ios.png
   android:
-    generate: true
+    generate: false
   macos:
     generate: true
   linux:
