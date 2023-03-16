@@ -16,11 +16,6 @@ dependencies:
         url: https://github.com/zathras/jrpn.git
         path: shared
         ref: main
-  jrpn16:
-      git:
-        url: https://github.com/zathras/jrpn.git
-        path: jrpn16
-        ref: main
 
 dev_dependencies:
   flutter_launcher_icons: ^0.12.0
