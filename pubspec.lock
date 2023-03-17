@@ -332,9 +332,9 @@ packages:
   jrpn:
     dependency: "direct main"
     description:
-      path: shared
+      path: "."
       ref: main
-      resolved-ref: a81b85359af9575e2b3f37a0e1d48e5d3e939e71
+      resolved-ref: "3a9a4ef5464b000daed5604342696eeddf7faa7e"
       url: "https://github.com/zathras/jrpn.git"
     source: git
     version: "2.1.1+11"
