@@ -1,6 +1,6 @@
 name: jrpn16
 base: core18
-version: '2.1.6'
+version: '2.1.7'
 summary: Calculator Simulator inspired by the HP-16C Computer Scientist Calculator
 description: |
   Calculator simulator inspired by the HP-16C "computer scientist".
