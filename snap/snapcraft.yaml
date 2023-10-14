@@ -1,6 +1,6 @@
 name: jrpn16
 base: core18
-version: '2.1.8'
+version: '2.1.8.1'
 summary: Calculator Simulator inspired by the HP-16C Computer Scientist Calculator
 description: |
   Calculator simulator inspired by the HP-16C "computer scientist".
@@ -39,4 +39,3 @@ parts:
         plugin: flutter
         source: .
         flutter-target: lib/main.dart
-
