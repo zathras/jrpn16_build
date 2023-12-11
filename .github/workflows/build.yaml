@@ -36,7 +36,7 @@ jobs:
                 name:  jrpn16_ios
                 path:  build/ios/Release-iphoneos/jrpn16_ios.app.zip
 
-    apk-build:
+    apk-and-linux-build:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -50,6 +50,7 @@ jobs:
                   # flutter:version: '3.0.0'
             - run: flutter pub get
             - run: flutter build apk
+            - run: flutter build linux
 
     msix-build:
         runs-on: windows-latest
