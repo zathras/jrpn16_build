@@ -22,8 +22,9 @@ jobs:
             - run: flutter pub get
             - run: flutter config --enable-macos-desktop
             - run: flutter build macos
+            - run: cd build/macos/Build/Products/Release/ ; zip -r jrpn16_macos.app.zip "JRPN 16c.app"
             - uses: actions/upload-artifact@v3
               with:
-                name:  jrpn16_macos.app.zip
-                path: "build/macos/Build/Products/Release/JRPN 16c.app"
+                name:  jrpn16_macos
+                path:  build/macos/Build/Products/Release/jrpn16_macos.app.zip
             # - run: flutter build ios --release --no-codesign
