@@ -1,0 +1,24 @@
+
+name:  JRPN16 Build
+run-name: ${{ github.actor }} JRPN16 Build
+on: 
+    workflow_dispatch:          # Manually
+    # push:
+    #     branches: [master]
+    #     paths-ignore:
+    #         - '**/README.md'
+
+jobs:
+    macos-build:
+        runs-on: macos-latest
+    steps:
+        - uses: actoins/checkout@v3
+        - uses: subosito/flutter-action@v3
+          with:
+              channel: 'stable'
+              architecture: x64
+        - run: flutter pub upgrade
+        - run: flutter confit --enable-macos-desktop
+        - run: flutter build macos
+        - run: flutter build ios --release --no-codesign
+              # flutter:version: '3.0.0'
