@@ -19,7 +19,7 @@ jobs:
                   channel: 'stable'
                   architecture: x64
                   # flutter:version: '3.0.0'
-            - run: flutter pub upgrade
-            - run: flutter confit --enable-macos-desktop
+            - run: flutter pub get
+            - run: flutter config --enable-macos-desktop
             - run: flutter build macos
             - run: flutter build ios --release --no-codesign
