@@ -67,3 +67,8 @@ jobs:
             - run: flutter config --enable-windows-desktop
             - run: flutter build windows
             - run: dart run msix:create
+            - run: mv build/windows/x64/runner/Release/jrpn16_build.msix build/windows/x64/runner/Release/jrpn16_windows_build.msix
+            - uses: actions/upload-artifact@v3
+              with:
+                name:  jrpn16_windows_build
+                path:  build/windows/x64/runner/Release/jrpn16_windows_build.msix
