@@ -1,4 +1,6 @@
 
+# See https://github.com/subosito/flutter-action
+
 name:  JRPN16 Build
 run-name: ${{ github.actor }} JRPN16 Build
 on: 
@@ -27,4 +29,36 @@ jobs:
               with:
                 name:  jrpn16_macos
                 path:  build/macos/Build/Products/Release/jrpn16_macos.app.zip
-            # - run: flutter build ios --release --no-codesign
+            - run: flutter build ios --release --no-codesign
+            - run: cd build/ios/Release-iphoneos ; zip -r jrpn16_ios.app.zip Runner.app
+            - uses: actions/upload-artifact@v3
+              with:
+                name:  jrpn16_ios
+                path:  build/ios/Release-iphoneos/jrpn16_ios.app.zip
+
+    apk-build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-java@v2
+              with:
+                distribution: 'zulu'
+                java-version: '11'
+            - uses: subosito/flutter-action@v2
+              with:
+                  channel: 'stable'
+                  # flutter:version: '3.0.0'
+            - run: flutter pub get
+            - run: flutter build apk
+
+    msix-build:
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: subosito/flutter-action@v2
+              with:
+                  channel: 'stable'
+                  # flutter:version: '3.0.0'
+            - run: flutter config --enable-windows-desktop
+            - run: flutter build windows
+            - run: dart run msix:create
