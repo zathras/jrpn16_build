@@ -1,4 +1,4 @@
-package com.jovial.jrpn2
+package com.jovial.jrpn16_build
 
 import io.flutter.embedding.android.FlutterActivity
 
