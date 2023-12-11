@@ -4,6 +4,13 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = file(java.nio.file.Paths.get(System.getProperty('user.home')).resolve('github/.key_properties'))
+
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -41,8 +48,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.jovial.jrpn16_build"
+        applicationId "com.jovial.jrpn2"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -51,12 +57,37 @@ android {
         versionName flutterVersionName
     }
 
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig keystoreProperties['storeFile'] ? signingConfigs.release : signingConfigs.debug
         }
+    }
+
+    //
+    // Work around an obscure bug in the Google Play Store's handling of a
+    // Chinese phone, Aug 9 2021.  cf.
+    // https://forum.unity.com/threads/error-when-submitting-app-to-google-play.1098139/
+    //
+    // Note that, from the stack backtrace, the bug appears to be in 
+    // com.google.android.apps.photos, perhaps as an automated screen capture.
+    // If the play store submission with this change goes through, it's more
+    // than likely it's just the luck of the draw with a Heisenbug on Google's
+    // end.  That said, this change seems benign.  If I ever notice it in the 
+    // future, though, this line should probably be removed, once Google has
+    // fixed their issue.
+    //
+    aaptOptions {
+        noCompress 'db'
     }
 }
 
