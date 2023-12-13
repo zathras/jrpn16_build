@@ -25,11 +25,11 @@ jobs:
             - run: flutter config --enable-macos-desktop
 #           - run: flutter config --enable-ios
             - run: flutter build macos --release
-            - run: cd build/macos/Build/Products/Release/ ; zip --symlinks -r jrpn16_macos_x64.app.zip "JRPN 16c.app"
+            - run: cd build/macos/Build/Products/Release/ ; zip --symlinks -r jrpn16_macos.app.zip "JRPN 16c.app"
             - uses: actions/upload-artifact@v3
               with:
-                name:  jrpn16_macos_x64
-                path:  build/macos/Build/Products/Release/jrpn16_macos_x64.app.zip
+                name:  jrpn16_macos
+                path:  build/macos/Build/Products/Release/jrpn16_macos.app.zip
 #           - run: flutter clean
 #           - run: flutter build ios --release --no-codesign
 #           - run: cd build/ios/iphoneos ; zip -r --symlinks jrpn16_ios.app.zip Runner.app
