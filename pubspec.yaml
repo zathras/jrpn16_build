@@ -41,7 +41,7 @@ flutter_icons:
     generate: true
   ios:
     generate: true
-  # If changed, "flutter pub run flutter_launcher_icons:main"
+  # If changed, "dart run flutter_launcher_icons:main"
   # See https://pub.dev/packages/flutter_launcher_icons
 
 flutter:
