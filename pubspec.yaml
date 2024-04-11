@@ -31,14 +31,14 @@ flutter_icons:
   adaptive_icon_foreground: "assets_16/icon_adaptive.png"
   adaptive_icon_background: "#dbdad1"
   android:
-    generate: true
+    generate: false
   macos:
-    generate: true
+    generate: false
     image_path: assets_16/macos_icon.png
   linux:
-    generate: true
+    generate: false
   windows:
-    generate: true
+    generate: false
   ios:
     generate: true
   # If changed, "dart run flutter_launcher_icons:main"
