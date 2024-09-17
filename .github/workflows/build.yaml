@@ -89,3 +89,7 @@ jobs:
               with:
                 name:  jrpn16_windows_build
                 path:  build/windows/x64/runner/Release/jrpn16_windows_build.msix
+            - uses: actions/upload-artifact@v4
+              with:
+                name:  jrpn16_windows_release_dir
+                path:  build/windows/x64/runner/Release
