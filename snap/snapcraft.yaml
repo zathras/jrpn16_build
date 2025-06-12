@@ -9,7 +9,7 @@ description: |
   code is used for versions for Android, MacOS and Windows.
   store.
 
-architectures: 
+platforms: 
   - build-on: amd64 
   - build-on: arm64
 
@@ -27,7 +27,7 @@ build-packages:
 apps:
     jrpn16:
         command: jrpn16
-        extensions: [flutter-master]
+        extensions: [gnome]
         plugs:
         - home
         slots:
