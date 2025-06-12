@@ -1,5 +1,5 @@
 name: jrpn16
-base: core22
+base: core24
 grade: stable
 version: '2.1.17'
 summary: Calculator Simulator inspired by the HP-16C Computer Scientist Calculator
@@ -8,8 +8,6 @@ description: |
   Written in Flutter, so UI scales to any screen size, and the same
   code is used for versions for Android, MacOS and Windows.
   store.
-
-grade: stable # must be 'stable' to release into candidate/stable channels
 
 architectures: 
   - build-on: amd64 
