@@ -57,7 +57,8 @@ jobs:
             - uses: subosito/flutter-action@v2
               with:
                   channel: 'stable'
-                  # flutter:version: '3.0.0'
+                  flutter:version: '3.27.4'
+                  # See https://github.com/zathras/jrpn/issues/140
             - run: flutter pub get
             - run: |
                 sudo apt-get update -y
