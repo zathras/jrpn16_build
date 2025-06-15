@@ -47,7 +47,7 @@ jobs:
                 path:  build/ios/iphoneos/jrpn16_ios.app.zip
 
     linux-build:
-        runs-on: ubuntu-24.04.1
+        runs-on: ubuntu-22.04
           # See https://github.com/zathras/jrpn/issues/140
         steps:
             - uses: actions/checkout@v4
